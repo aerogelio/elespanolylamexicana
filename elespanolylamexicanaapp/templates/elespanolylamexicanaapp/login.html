@@ -1,0 +1,33 @@
+{% extends 'elespanolylamexicanaapp/base.html' %}
+
+{% block body %}
+    <form method="POST">
+        <div class="container mt-3 mb-4 login-container">
+            <div class="row">
+                <div class="col-12 error">
+                    {% if sError is not None %}
+                        {{ sError }}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <label>Usuario:</label>
+                    <input name="username" class="form-control" type="text" placeholder="Usuario">
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-12">
+                    <label>Contrase&ntilde;a:</label>
+                    <input name="password" class="form-control" type="password" placeholder="Contrase&ntilde;a">
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <input  class="btn btn-primary" type="submit" value="Iniciar Sesi&oacute;n">
+                </div>
+            </div>
+        </div>
+        {% csrf_token %}
+    </form>
+{% endblock %}

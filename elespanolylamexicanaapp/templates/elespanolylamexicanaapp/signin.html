@@ -1,0 +1,71 @@
+{% extends 'elespanolylamexicanaapp/base.html' %}
+{% load widget_tweaks  %}
+
+{% block body %}
+    
+    <form method="POST" >
+        <div class="container mb-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="d-inline"><b>Bienvenido</b></h2> a el espa&ntilde;ol y la mexicana,
+                    registrese para comenzar a disfrutar de nuestros deliciosos platillos.
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">                    
+                    {{ userappForm.non_field_errors }}
+                    {{ userForm.non_field_errors }} 
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <label>Nombre(s):*</label>
+                    {{ userappForm.names.errors }}
+                    {{ userappForm.names|add_class:"form-control"|attr:"placeholder:Nombre(s)"|attr:"required:false" }}
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <label>Apellido paterno:*</label>
+                    {{ userappForm.first_last_name.errors }}
+                    {{ userappForm.first_last_name|add_class:"form-control"|attr:"placeholder:Apellido Paterno" }}
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <label>Apellido materno:*</label>
+                    {{ userappForm.second_last_name.errors }}
+                    {{ userappForm.second_last_name|add_class:"form-control"|attr:"placeholder:Apellido Materno" }}
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <!--<label>Hombre:</label>
+                    <input name="sexo" type="radio" value="0"><br>
+                    <label>Mujer:</label>
+                    <input name="sexo" type="radio" value="1">-->
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 col-sm-6">
+                    <label>Usuario:*</label>
+                    {{ userForm.username.errors }}
+                    {{ userForm.username|add_class:"form-control"|attr:"placeholder:Usuario" }}
+                </div>
+                <div class="col-12 col-sm-6">
+                    <label>Contrase&ntilde;a:*</label>
+                    {{ userForm.password.errors }}
+                    {{ userForm.password|add_class:"form-control"|attr:"placeholder:Contraseña"|attr:"type:password" }}
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <label>Es conocido por el espa&ntilde;ol y la mexicana como*:</label>
+                    {{ userappForm.alias|add_class:"form-control"|attr:"placeholder:Alias(apodo)" }}
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-12">
+                    <input class="btn btn-success float-right" type="submit" value="Registrar" >
+                </div>
+            </div>
+        </div>
+        {% csrf_token %}
+    </form>
+
+{% endblock %}

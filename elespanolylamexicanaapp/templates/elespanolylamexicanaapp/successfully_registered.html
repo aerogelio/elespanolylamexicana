@@ -1,0 +1,21 @@
+{% extends 'elespanolylamexicanaapp/base.html' %}
+
+{% block body %}
+    <div class="container mt-2 mb-2">
+        <div class="row pr-5 pl-5">
+            <div class="col-12 ">
+                <h3><b>Estimado comensal:</b></h3>
+                <h4 class="text-justify">Tu cuenta ha sido registrada <span class="text-success"><b>exitosamente</b></span>,
+                sin embargo, ya que este servicio solo se encuentra disponible para clientes de
+                "<b><span class="espanol font-italic">El español y</span> <span class="mexicana font-italic">la Mexicana</span></b>",
+                debes acudir a nuestro establecimiento para activar tu cuenta, agradecemos tu comprensi&oacute;n y te enviamos
+                un coordial saludo, te esperamos.</h4>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-12">
+                <a href="{% url 'dashboard' %}" ><h3>Ir al Dashboard</h3></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

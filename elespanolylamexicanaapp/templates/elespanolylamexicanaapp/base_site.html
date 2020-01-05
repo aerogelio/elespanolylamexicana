@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | El espa&ntilde;ol y la Mexicana{% endblock %}
+
+{% block extrastyle %}
+    <style>
+        #header{
+            background-color: #fbb610;
+        }
+        #title-brand{
+            font-style: italic;
+            color: black;
+            font-weight: bolder;
+            font-family: Helvetica;
+        }
+        
+        #title-brand .espanol{
+            color: #f00909;
+        }
+        
+        #title-brand .mexicana{
+            color: green;
+        }
+    </style>
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}"><p id="title-brand"><span class="espanol" >El espa&ntilde;ol y</span> <span class="mexicana">la mexicana</span> | Panel de control</p></a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

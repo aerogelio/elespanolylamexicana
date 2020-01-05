@@ -1,0 +1,84 @@
+{% extends 'elespanolylamexicanaapp/base.html' %}
+{% load static %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 mb-4 mt-4">
+                <section id="todo-jumbotron">
+                    <div class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active ">
+                                <img class="d-block mx-auto img-fluid" height="300" src="{% static '/img/portadaweb.png' %}" alt="Comensales" >
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 text-center h-100px">
+                <a href="{% url 'login' %}">
+                    <button class="btn btn-action btn-danger">Ordena y Recoge</button>
+                </a>
+            </div>
+            <div class="col-6 text-center">
+                <button disabled class="btn btn-action btn-info">Servicio a Domicilio<span class="tooltip-message d-block">(No disponible)</span></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 px-5">
+                <h4>El espa&ntilde;ol y la mexicana pone a disposici&oacute;n de usted, sus exquisitos platillos:</h4>
+                <p>(Reg&iacute;strese para ver todo nuestro menú).</p>
+            </div>
+        </div>
+       
+        <div class="mt-2 mb-2 container"> 
+            <div class="card-group">   
+                <!--bootstrap card with 3 horizontal images-->
+                <div class="row"> 
+                    <div class="col-md-3"> 
+                        <img class="card-img-top" src="{% static '/img/eats/chilaquiles_rojos.jpg' %}"> 
+                        <div class="card-body"> 
+                            <h3 class="card-title">Chilaquiles rojos y verdes</h3> 
+                            <p class="text-justify">Chilaquiles ba&ntilde;ados en su riquísima salsita roja, con su ensalada de verduras y
+                            frijolito/arroz como complemento =).</p> 
+                        </div> 
+                    </div> 
+      
+                    <div class="col-md-3"> 
+                        <img class="card-img-top" src="{% static '/img/eats/chilaquiles_rojos.jpg' %}">  
+                          
+                        <div class="card-body"> 
+                            <h3 class="card-title">Molletes</h3> 
+                            <p class="text-justify">Exquisitos molletes con su frijolito y queso gratinado, en cualquiera de sus
+                            mollepizas &oacute; molletes con tocino ;).</p> 
+                        </div> 
+                    </div> 
+                      
+                    <div class="col-md-3"> 
+                        <img class="card-img-top" src="{% static '/img/eats/chilaquiles_rojos.jpg' %}">                      
+                        <div class="card-body"> 
+                            <h3 class="card-title">Paella</h3> 
+                            <p class="card-text">Riqu&iacute;sima paella, disfrute de un exquisito y tradicional platillo espa&ntilde;ol.</p> 
+                        </div> 
+                    </div>
+                    <div class="col-md-3"> 
+                        <img class="card-img-top" src="{% static '/img/eats/chilaquiles_rojos.jpg' %}">                      
+                        <div class="card-body"> 
+                            <h3 class="card-title">Huevos al gusto</h3> 
+                            <p class="text-justify">Huevos preparados con el ingrediente de su elecci&oacute;n como:
+                                Jam&oacute;n, Machaca, Tocino, Rancheros, Mexicano, Omelete. </p>
+                        </div> 
+                    </div>                    
+                </div>
+                
+                <h5>(Reg&iacute;strese para ver todo nuestro menú).</h5>
+                
+            </div> 
+        </div> 
+       
+        
+       
+    </div>
+{% endblock %}

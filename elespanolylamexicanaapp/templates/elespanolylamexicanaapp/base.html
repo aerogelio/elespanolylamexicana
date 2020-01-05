@@ -1,0 +1,104 @@
+{% load static %}
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/elespanolylamexicana.css' %}">
+    </head>
+    <body class="bg-general">        
+        <nav class="navbar fixed-top navbar-expand-sm navbar-light em-bg-navbar" >
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'img/elespanolylamexicana-logo.png' %}" alt="bikers.png" >
+                <b class="em-brand-text em-text-color">El espa&ntilde;ol y la mexicana</b>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="d-flex w-100 justify-content-end">
+                    {% if user.is_authenticated %}
+                        <a class="nav-link letter-spacing-normal em-text-color em-link-general" href="{% url 'order' %}" >
+                            <img src="{% static 'img/carrito.png' %}" class="img-fluid h-carrito">
+                            <b>({% if 'products' in dOrder %}{{ dOrder.products|length }}{% endif %})                        
+                            $ {{dOrder.total}}
+                            </b>
+                        </a>
+                        <a class="nav-link letter-spacing-normal em-text-color em-link-general" href="{% url 'dashboard' %}" ><b>Dashboard</b></a>
+                        <a class="nav-link letter-spacing-normal em-text-color em-link-general" href="{% url 'logout' %}" ><b>Salir</b></a>
+                    {% else %}
+                        <a class="nav-link letter-spacing-normal em-text-color em-link-general" href="{% url 'login' %}" ><b>Inicio Sesi&oacute;n</b></a>
+                        <a class="nav-link letter-spacing-normal  em-text-color em-link-general" href="{% url 'signin' %}" ><b>Registrar</b></a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container-fluid location-flow">
+            <div class="row">
+                <div class="col-sm-12 my-1">
+                    <div class="d-flex justify-content-around align-items-center" >
+                        <h4 class="">Cd, Obregón, Sonora</h4>
+                        <a class="" href="#"><h5 class="d-inline">Descarga la app</h5></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        {% block body %}     
+        
+        {% endblock %}
+        <footer  class="page-footer font-small bg-dark p-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h6 class="text-light">Contacto</h6>
+                        <form class="">
+                            <div class="form-row">
+                                <div class="col-6">
+                                    <label class="text-light">Nombre:</label>
+                                    <input class="form-control" placeholder="Nombre">
+                                    <label class="text-light">Correo:</label>
+                                    <input class="form-control" placeholder="Correo">
+                                </div>
+                                <div class="col-6">
+                                    <label class="text-light">Descripci&oacute;n:</label>
+                                    <textarea rows="4" class="form-control" placeholder="Descripci&oacute;n"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row mt-2">
+                                <div class="col-12">
+                                    <input type="submit" class="btn btn-primary float-right">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-3">
+                        <h6 class="text-light">Navegaci&oacute;n</h6>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-dark text-light p-0"><a href="{% url 'home' %}">Home</a></li>
+                            <li class="list-group-item bg-dark text-light p-0"><a href="{% url 'dashboard' %}">Ordena y recoge</a></li>
+                            <li class="list-group-item bg-dark text-light p-0"><a href="{% url 'dashboard' %}">Servicio a domicilio</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <h6 class="text-light">Redes Sociales</h6>
+                        <a target="_blank" href="https://www.facebook.com/El-espa%C3%B1ol-y-la-mexicana-149569309134020/" >
+                            <img src="{% static 'img/facebook-logo.png' %}" alt="" class="img-thumbnail mr-1">
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-light">
+                        &copy; El espa&ntilde;ol y la mexicana.
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <script type="text/javascript" src="{% static 'js/jQuery-3.3.1.min.js' %}" ></script>
+        <script type="text/javascript" src="{% static 'js/popper.min.js' %}" ></script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}" ></script>
+    </body>
+</html>

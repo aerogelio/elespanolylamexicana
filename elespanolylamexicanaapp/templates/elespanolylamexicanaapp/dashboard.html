@@ -1,0 +1,101 @@
+{% extends 'elespanolylamexicanaapp/base.html' %}
+{% load static %}
+
+{% block body %}
+
+    {% if user.is_authenticated %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 my-1">
+                    <div class="d-block">Tienes: (Actualice el navegador para ver el estado de su orden)</div>
+                    <div class="d-block order-view">
+                        {% for oOrder in loOrders %}
+                            <a class="mr-3 rounded " href="{% url 'order_show' oOrder.id %}">Orden({{ oOrder.typeDelivery }})</a>
+                        {% endfor %}
+                    </div>                            
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="container mt-2 mb-2">
+        <div class="row pr-5 pl-5">
+            <div class="col-1">
+                <img class="img-chef" src="{% static 'img/chef.png' %}" >
+            </div>
+            <div class="col-11">
+                <h3 class="d-inline">Bienvenido: </h3><h5 class="d-inline">{{ user.userapp.alias }} </h5>
+                <h6 class="d-inline">({{ user.userapp.names }} {{ user.userapp.first_last_name }})</h6>
+                <div><h3><b>¿Que se te antoja comer hoy?</b></h3></div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-2 mb-2">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-2">
+                <form method="get">
+                    <div class="dt-category rounded">
+                        <div class="dt-head">
+                            Platillos
+                        </div>
+                        <div class="dt-body">
+                            {% for oCategory in loCategories %}
+                                <div class="" style="float: left; width: 20%;">
+                                    {% if oCategory.name in lQParameters %}
+                                        <input name="{{ oCategory.name }}" class="rounded" type="checkbox" checked=checked >
+                                    {% else %}
+                                        <input name="{{ oCategory.name }}" class="rounded" type="checkbox" >
+                                    {% endif %}
+                                </div>
+                                <div class="" style="float: left; width: 80%;">
+                                    {{ oCategory.name }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div style="clear: both;">
+                            <input class="btn btn-primary w-100" type="submit" value="Filtrar" >
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-sm-12 col-md-10">
+                
+                {% for oProduct in oProducts %}
+                    <div class="container-fluid border rounded table-list-products mb-3">
+                    
+                        <div class="row">
+                            <div class="col-2">
+                                <div class="d-flex align-items-center h-100">
+                                    <img src="{% static 'img/default - copia.png' %}" alt="comida" class="img-fluid" >
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div>&nbsp;</div>
+                                <div class="">
+                                    {{ oProduct.name|capfirst }}
+                                </div>
+                                <div class="">
+                                    {{ oProduct.description|capfirst }}
+                                </div>
+                                <div class="float-right">
+                                    <div>Precio: $ {{ oProduct.price }} {{ oProduct.iva_Html }} <b>$ {{ oProduct.total }}</b></div>                                    
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="d-flex align-items-center h-100">
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <input name="pk" type="hidden" value="{{ oProduct.id }}" >
+                                        <button class="btn btn-success">+</button>
+                                    </form>                                    
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
