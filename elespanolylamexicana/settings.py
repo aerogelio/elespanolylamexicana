@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'elespanolylamexicana.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fuck_db',
-        'USER': 'fuck_u',
-        'PASSWORD': 'fuck_p',
+        'NAME': 'elespanolylamexicanadb',
+        'USER': 'elespanolylamexicanadb',
+        'PASSWORD': 'R0m3r0#*',
         'HOST': 'localhost',
         'PORT': '3306',
     }

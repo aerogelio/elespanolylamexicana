@@ -1,0 +1,106 @@
+.bg-general{
+    background-color: #f5f5f5;
+    background-image: url('../img/bg-img.png');
+}
+
+.location-flow{
+    margin-top: 66px;
+}
+
+.h-100px{
+    height: 100px;
+}
+
+.login-container{
+    width: 350px;
+}
+
+.btn-action{
+    width: 220px;
+    height: 60px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.letter-spacing-normal{
+    letter-spacing: 1.5px;
+}
+
+.em-list-group{
+
+}
+
+.em-list-group li{
+    list-style-type: none;
+}
+
+.em-text-color{
+    color: #3f250c;
+}
+
+.em-bg-navbar{
+    background-color: #fbb610;
+}
+
+.em-brand-text{
+    font-style: italic;
+}
+
+.em-link-general{
+    font-style: italic;
+}
+
+.error{
+    color: red;
+}
+
+.errorlist li{
+    color: red;
+    list-style-type: none;
+}
+
+.espanol{
+    color: red;
+}
+
+.mexicana{
+    color: green;
+}
+
+.img-chef{
+    max-width: 60px;
+}
+
+.tooltip-message{
+    font-size: 14px;
+}
+
+.table-list-products{
+    background: #f0efef;
+}
+
+.h-carrito{
+    height: 20px;
+}
+
+.dt-category{
+    background-color: #ccc;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.order-view{
+    border: 1px solid #007fff;
+    background-color: white;
+    padding: 5px;
+}
+
+.order-view a{
+    text-decoration: none;
+}
+
+.dt-head{
+    background-color: #acaaaa;
+    padding-left: 10px;
+    padding-right: 10px;
+}
