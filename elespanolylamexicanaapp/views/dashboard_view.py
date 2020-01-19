@@ -33,7 +33,7 @@ class DashboardView( View ):
         loCategories = Category.objects.all()
         queryFilter = Q()
         
-        for paramCategory in request.GET:            
+        for paramCategory in request.GET:
             queryFilter.add( Q( category__name=paramCategory ), Q.OR )
             
         oProducts = Product.objects.filter( queryFilter )

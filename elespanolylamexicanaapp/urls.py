@@ -8,6 +8,8 @@ from elespanolylamexicanaapp.views.order_show_view import OrderShowView
 from elespanolylamexicanaapp.views.refresh_order_view import RefreshOrderServiceView
 from elespanolylamexicanaapp.views.successfully_registered import SuccessfullyRegisteredView
 from elespanolylamexicanaapp.views.logout_view import LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path( '',  HomeView.as_view(), name='home'),
@@ -19,4 +21,4 @@ urlpatterns = [
     path( 'order/show/<int:order_id>', OrderShowView.as_view(), name='order_show' ),
     path( 'refresh-orders', RefreshOrderServiceView.as_view(), name='refresh-order' ),
     path( 'logout', LogoutView.as_view(), name='logout' ),
-]
+] + static( settings.MEDIA_URL, document_root = settings.MEDIA_ROOT )
