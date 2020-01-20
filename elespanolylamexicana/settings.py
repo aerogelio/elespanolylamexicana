@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%8+!jac2o!pki1ue3r8fo27t#3zgmtw(b)1g(pf1jq*6l(urk3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -76,13 +76,13 @@ WSGI_APPLICATION = 'elespanolylamexicana.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'elespanolylamexicanadb',
-        'USER': 'elespanolylamexicanadb',
-        'PASSWORD': 'R0m3r0#*',
-        'HOST': 'localhost',
-        'PORT': '3306',
+    'default' : {
+    'ENGINE' : 'django.db.backends.mysql',
+    'NAME': 'elespanolylamexicanadb',
+    'USER': 'elespanolylamexicanadb',
+    'PASSWORD': 'R0m3r0#*',
+    'HOST' : 'localhost',
+    'PORT' : '3306',
     }
 }
 
@@ -125,6 +125,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/romelio/elespanolylamexicana/static' 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configuration elespanolylamexicanaapp
 
